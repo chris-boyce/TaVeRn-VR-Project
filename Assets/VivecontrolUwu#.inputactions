@@ -1,0 +1,33 @@
+{
+    "name": "VivecontrolUwu#",
+    "maps": [
+        {
+            "name": "ViveControlUwu",
+            "id": "fb518266-b27e-45d5-812a-ca3aa9e22111",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "b488545d-3ecb-4b57-9b4f-4fecc94f9a8c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d181a5f5-4efd-4401-838a-732edb5c3d03",
+                    "path": "<XRController>{LeftHand}/touchpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
