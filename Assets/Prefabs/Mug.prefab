@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1178119846}
   - component: {fileID: 1178119845}
   - component: {fileID: 1178119844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8667843094354900396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,9 +127,10 @@ GameObject:
   - component: {fileID: 4777331557045206186}
   - component: {fileID: 1527851294}
   - component: {fileID: 1527851295}
-  m_Layer: 0
+  - component: {fileID: 916957252}
+  m_Layer: 8
   m_Name: Mug
-  m_TagString: Untagged
+  m_TagString: Mug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,3 +321,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liquid: {fileID: 1178119842}
   isFull: 0
+--- !u!114 &916957252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754825873005164835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62135e6d2aecbcc4ab60415080212f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SocketType: o
+  SocketedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  DisableSocketOnSocketed: 0

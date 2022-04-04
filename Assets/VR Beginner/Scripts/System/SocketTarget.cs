@@ -47,4 +47,5 @@ public class SocketTarget : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         interactor.socketActive = false;
     }
+
 }

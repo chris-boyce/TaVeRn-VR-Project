@@ -6,7 +6,7 @@ using TMPro;
 
 public class MissionController : MonoBehaviour
 {
-    public enum Mission { LightCandles, FlipSign, ServeDrink , NullMission };
+    public enum Mission { LightCandles, FlipSign, ServeDrink, CookFood, ServeFood , NullMission };
     private Mission currentMission;
     public Dictionary<Mission, bool> Missions = new Dictionary<Mission, bool>();
     public AIController AIController;
@@ -66,9 +66,16 @@ public class MissionController : MonoBehaviour
             case Mission.ServeDrink:
                 BlackboardText.text = "Server A Drink To The Customer";
                 break;
+            case Mission.CookFood:
+                BlackboardText.text = "Cook Some Meat in the Oven";
+                break;
+            case Mission.ServeFood:
+                BlackboardText.text = "Place on Plate and Give to Customer";
+                break;
             case Mission.NullMission:
                 BlackboardText.text = "Error Message Out Of Missions";
                 break;
+
         }
         
     }

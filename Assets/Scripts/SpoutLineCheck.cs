@@ -24,9 +24,8 @@ public class SpoutLineCheck : MonoBehaviour
             {
                 lineRenderer.SetPosition(1, hit.point);
                 
-                if(hit.collider.name == "Mug")
+                if(hit.collider.tag == "Mug")
                 {
-                    Debug.Log("Yes");
                     hit.collider.gameObject.GetComponent<MugController>().FillCup();
                 }
 

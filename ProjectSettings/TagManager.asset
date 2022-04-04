@@ -13,6 +13,9 @@ TagManager:
   - Chair
   - Table
   - AttachPoints
+  - Oven
+  - Plate
+  - Meat
   layers:
   - Default
   - TransparentFX
