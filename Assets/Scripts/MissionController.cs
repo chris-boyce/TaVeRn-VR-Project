@@ -18,6 +18,8 @@ public class MissionController : MonoBehaviour
         Missions.Add(Mission.LightCandles, false);
         Missions.Add(Mission.FlipSign, false);
         Missions.Add(Mission.ServeDrink, false);
+        Missions.Add(Mission.CookFood, false);
+        Missions.Add(Mission.ServeFood, false);
         Missions.Add(Mission.NullMission, false);
         //Sets Current Mission
         currentMission = Mission.LightCandles;

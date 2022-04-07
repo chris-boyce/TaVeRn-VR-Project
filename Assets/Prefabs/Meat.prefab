@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 190589282}
   - component: {fileID: 190589279}
   - component: {fileID: 190589280}
+  - component: {fileID: 496864550}
   m_Layer: 8
   m_Name: Meat
-  m_TagString: Untagged
+  m_TagString: Meat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,8 +65,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6884584120323105140, guid: e3dcc8f6ebcbb0044909e65b3ac1b356, type: 3}
-  - {fileID: 876486189170964419, guid: e3dcc8f6ebcbb0044909e65b3ac1b356, type: 3}
+  - {fileID: 2100000, guid: fb2aa5b3db68d574a94e808d4db8e2c4, type: 2}
+  - {fileID: -5564192395477030378, guid: e3dcc8f6ebcbb0044909e65b3ac1b356, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,3 +221,38 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 1
   m_RetainTransformParent: 1
+--- !u!114 &496864550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525131844006006644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b29c0619739e6b469ff417b8036dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RunCompletedTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MeatCheck, Assembly-CSharp
+        m_MethodName: HasCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CookingColors:
+  - {r: 0.5943396, g: 0.21026166, b: 0.4813644, a: 0}
+  - {r: 0.5660378, g: 0.08276967, b: 0.22215095, a: 0}
+  - {r: 0.6037736, g: 0.48946813, b: 0.4300463, a: 0}
+  - {r: 0.49056602, g: 0.28065056, b: 0.09487361, a: 0}
+  - {r: 0.31132078, g: 0.1762924, b: 0.054334287, a: 0}
+  counter: 0
+  renderer: {fileID: 6072360248722373612}
