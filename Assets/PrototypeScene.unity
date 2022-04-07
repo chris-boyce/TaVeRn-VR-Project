@@ -2393,6 +2393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {fileID: 2018677414}
+  CurrentForwardDirection: {fileID: 1915339190}
+  cachedForwardDirection: {fileID: 0}
 --- !u!65 &578878742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8652,6 +8654,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1240630588651888049, guid: e3dcc8f6ebcbb0044909e65b3ac1b356, type: 3}
+--- !u!4 &1915339190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1837324663941945070, guid: d45e8a6999317d2428a51593da44d3ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1543957997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920983818
 GameObject:
   m_ObjectHideFlags: 0
