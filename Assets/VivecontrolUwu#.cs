@@ -25,6 +25,14 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Settings"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc2fe3f3-8603-4029-b76e-0d7af7f1b2c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +46,17 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98b70f71-4a3f-464f-a9a8-0e432d272f50"",
+                    ""path"": ""<ViveController>{LeftHand}/menu"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Settings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +66,7 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
         // ViveControlUwu
         m_ViveControlUwu = asset.FindActionMap("ViveControlUwu", throwIfNotFound: true);
         m_ViveControlUwu_Movement = m_ViveControlUwu.FindAction("Movement", throwIfNotFound: true);
+        m_ViveControlUwu_Settings = m_ViveControlUwu.FindAction("Settings", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +117,13 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
     private readonly InputActionMap m_ViveControlUwu;
     private IViveControlUwuActions m_ViveControlUwuActionsCallbackInterface;
     private readonly InputAction m_ViveControlUwu_Movement;
+    private readonly InputAction m_ViveControlUwu_Settings;
     public struct ViveControlUwuActions
     {
         private @VivecontrolUwu m_Wrapper;
         public ViveControlUwuActions(@VivecontrolUwu wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_ViveControlUwu_Movement;
+        public InputAction @Settings => m_Wrapper.m_ViveControlUwu_Settings;
         public InputActionMap Get() { return m_Wrapper.m_ViveControlUwu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +136,9 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnMovement;
+                @Settings.started -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnSettings;
+                @Settings.performed -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnSettings;
+                @Settings.canceled -= m_Wrapper.m_ViveControlUwuActionsCallbackInterface.OnSettings;
             }
             m_Wrapper.m_ViveControlUwuActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +146,9 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Settings.started += instance.OnSettings;
+                @Settings.performed += instance.OnSettings;
+                @Settings.canceled += instance.OnSettings;
             }
         }
     }
@@ -128,5 +156,6 @@ public class @VivecontrolUwu : IInputActionCollection, IDisposable
     public interface IViveControlUwuActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSettings(InputAction.CallbackContext context);
     }
 }

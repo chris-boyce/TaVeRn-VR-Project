@@ -28,7 +28,7 @@ public class SelectionOutline : MonoBehaviour
     public void Highlight()
     {
         m_Highlighted = 1.0f;
-
+        Debug.Log("Kill me");
         Renderer.GetPropertyBlock(m_Block);
         m_Block.SetFloat(m_HighlightActiveID, m_Highlighted);
         Renderer.SetPropertyBlock(m_Block);

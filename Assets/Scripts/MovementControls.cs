@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MovementControls : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class MovementControls : MonoBehaviour
     private float offsetDistance;
     public Transform CurrentForwardDirection;
     public Transform cachedForwardDirection;
+    private bool isForword;
+    private bool isRight;
+    public GameObject RightHandUI;
+    public GameObject LeftHandUI;
+    public GameObject MenuCanvas;
+    private bool isMenuActive;
     
 
     void Start()
@@ -32,39 +39,56 @@ public class MovementControls : MonoBehaviour
             {
                 offsetDistance = hit.distance;
                 Offset.transform.position = new Vector3(Offset.transform.position.x, -offsetDistance + 1.75f , Offset.transform.position.z) ;
-
-
             }
         }
-        if(movementInput.x < 0.1 || movementInput.y < 0.1)
+        isRight = false;
+        isForword = false;
+
+        if(movementInput.x > 0.5f)
+        {
+            rb.AddRelativeForce(cachedForwardDirection.transform.right * 4, ForceMode.Impulse);
+        }
+        else if(movementInput.x < -0.5f)
+        {
+            rb.AddRelativeForce(-cachedForwardDirection.transform.right * 4, ForceMode.Impulse);
+        }
+        else
+        {
+            isRight = true;
+        }
+
+
+        if (movementInput.y > 0.5f)
+        {
+            rb.AddRelativeForce(cachedForwardDirection.transform.forward * 4, ForceMode.Impulse);
+        }
+        else if (movementInput.y < -0.5f)
+        {
+            rb.AddRelativeForce(-cachedForwardDirection.transform.forward * 4, ForceMode.Impulse);
+        }
+        else
+        {
+            isForword = true;
+        }
+
+        if(isForword && isRight)
         {
             cachedForwardDirection = CurrentForwardDirection;
         }
 
-
-
-        if(movementInput.x < 0.2)
-        {
-            rb.AddRelativeForce(cachedForwardDirection.transform.forward + new Vector3(movementInput.x * 2, 0, 0), ForceMode.Impulse);
-        }
-        if(movementInput.x > 0.2)
-        {
-            rb.AddRelativeForce(-cachedForwardDirection.transform.forward + new Vector3(movementInput.x * 2, 0, 0), ForceMode.Impulse);
-        }
-
-        if(movementInput.y < 0.2)
-        {
-
-        }
-        rb.AddRelativeForce(cachedForwardDirection.transform.forward + new Vector3(0, 0, movementInput.y * 2), ForceMode.Impulse);
-
-
-        //rb.AddForce(new Vector3(movementInput.x * 2, 0, 0), ForceMode.Impulse);
-        //rb.AddForce(new Vector3(0, 0, movementInput.y * 2), ForceMode.Impulse);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+    }
+    public void OnMenu()
+    {
+        isMenuActive = !isMenuActive;
+        RightHandUI.SetActive(isMenuActive);
+        LeftHandUI.SetActive(isMenuActive);
+        MenuCanvas.SetActive(isMenuActive);
+
+
     }
 }

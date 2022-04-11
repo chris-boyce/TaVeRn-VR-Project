@@ -11,9 +11,11 @@ public class MissionController : MonoBehaviour
     public Dictionary<Mission, bool> Missions = new Dictionary<Mission, bool>();
     public AIController AIController;
     public TextMeshProUGUI BlackboardText;
+    private AudioSource source;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         //Adds To Dictionary
         Missions.Add(Mission.LightCandles, false);
         Missions.Add(Mission.FlipSign, false);
@@ -32,6 +34,7 @@ public class MissionController : MonoBehaviour
     {
         if (currentMission == completedMission)//If Mission is Completed and it is the target mission
         {
+            source.Play();
             Missions[completedMission] = true; //Sets the mission true in the dictionary
             Debug.Log("Completed " + (completedMission) + " SetValue " + Missions[Mission.LightCandles]);
 

@@ -26,8 +26,14 @@ public class XRExclusiveSocketInteractor : XRSocketInteractor
         {
             if (interactable.transform.tag == "Mug")
             {
+                
                 if (interactable.GetComponent<MugController>().isFull == true)
                 {
+                    if(transform.rotation.x != 0f)
+                    {
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
+                    
                     Help = interactable.gameObject;
                     RunCheck.Invoke();
 
@@ -35,6 +41,11 @@ public class XRExclusiveSocketInteractor : XRSocketInteractor
             }
             if (interactable.transform.tag == "Plate")
             {
+                if(transform.rotation.x != 270f)
+                {
+                    transform.rotation = Quaternion.Euler(270, 0, 0);
+                }
+                
                 Help = interactable.gameObject;
             }
         }

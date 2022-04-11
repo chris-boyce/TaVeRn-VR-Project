@@ -7,7 +7,6 @@ public class MeatChecker : MonoBehaviour
     public GameObject Meat;
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.transform.tag == "Meat")
         {
             Meat = other.gameObject;
@@ -16,7 +15,6 @@ public class MeatChecker : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Meat = null;
-        Debug.Log("Meat has exited");
     }
 
 }
